@@ -14,19 +14,36 @@ java {
 }
 
 repositories {
-	mavenCentral()
+	mavenCentral()  // 리포지토리 선언
 }
 
 dependencies {
+	// MySQL Connector (명시적 버전 추가)
+	implementation 'mysql:mysql-connector-java:8.0.33'
+
+	// Spring Boot Starter Dependencies
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// MyBatis
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
+
+	// Thymeleaf Extras for Spring Security
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+
+	// Lombok
 	implementation 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	// H2 Database (in-memory database for testing or dev)
 	runtimeOnly 'com.h2database:h2'
+
+	// Development tools
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	// Testing dependencies
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
 	testImplementation 'org.springframework.security:spring-security-test'
