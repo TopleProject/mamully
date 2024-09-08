@@ -7,4 +7,8 @@ public class TestDTO {
 
     private Long id;
     private String content;
+
+    public TestDTO(String content) {
+        this.content = content;
+    }
 }
