@@ -15,4 +15,8 @@ public class Test {
     private Long id;
 
     private String content;
+
+    public Test(String content) {
+        this.content = content;
+    }
 }
