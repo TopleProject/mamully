@@ -1,7 +1,8 @@
 package com.mamully.toyProject.config;
 
-import com.mamully.toyProject.test.mappers.TestMapper;
-import com.mamully.toyProject.test.services.TestDTO;
+
+import com.mamully.toyProject.test.command.services.TestDTO;
+import com.mamully.toyProject.test.query.mappers.TestMapper;
 import com.zaxxer.hikari.HikariDataSource;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.session.SqlSessionFactory;
