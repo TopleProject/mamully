@@ -1,4 +1,4 @@
-package com.mamully.toyProject.test.services;
+package com.mamully.toyProject.test.command.services;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
