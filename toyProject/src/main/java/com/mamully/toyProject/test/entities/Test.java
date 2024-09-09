@@ -4,10 +4,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Test {
 
     @Id
@@ -17,6 +21,6 @@ public class Test {
     private String content;
 
     public Test(String content) {
-        this.content = content;
+        this.content = content;  // content 필드 초기화
     }
 }
