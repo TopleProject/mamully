@@ -1,14 +1,13 @@
 package com.mamully.toyProject.test.services;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor  // 기본 생성자
+@AllArgsConstructor // 모든 필드를 받는 생성자
 public class TestDTO {
 
-    private Long id;
     private String content;
-
-    public TestDTO(String content) {
-        this.content = content;
-    }
 }
