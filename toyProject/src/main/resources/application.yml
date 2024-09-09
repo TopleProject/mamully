@@ -6,6 +6,8 @@ server:
 spring:
   application:
     name: toyProject
+  config:
+    import: optional:file:.env[.properties]
   datasource:
     url: jdbc:mysql://localhost:3307/${MYSQL_DATABASE}
     username: ${MYSQL_USER}

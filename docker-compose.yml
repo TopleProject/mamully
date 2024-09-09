@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   mysql:
     image: mysql:latest
@@ -28,6 +27,15 @@ services:
       - "8088:80"
     networks:
       - springboot-network
+
+#  spring:
+#    build:
+#      context: ./toyProject
+#      dockerfile: DockerFile
+#    depends_on:
+#      - mysql
+#    ports:
+#      - "8084:8084"
 
 volumes:
   db_data:
