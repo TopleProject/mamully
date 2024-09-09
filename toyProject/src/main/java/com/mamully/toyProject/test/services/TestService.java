@@ -21,14 +21,13 @@ public class TestService {
         return new TestDTO(savedTest.getContent());
     }
 
-    /* Test Update 작업*/
     public TestDTO updateTest(Long id, String content) {
         Test test = testRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("ID 값이 없습니다 : " + id));
+                .orElseThrow(() -> new IllegalArgumentException("해당 ID의 데이터가 존재하지 않습니다 : " + id));
 
-        test.setContent(content);  // Update the content
-        Test updatedTest = testRepository.save(test);  // Save the updated entity
-        return new TestDTO(updatedTest.getContent());  // Return the updated DTO
+        test.setContent(content);  // 업데이트된 content 설정
+        Test updatedTest = testRepository.save(test);  // 업데이트 후 저장
+        return new TestDTO(updatedTest.getContent());  // 업데이트된 DTO 반환
     }
 
     // Test Delete
