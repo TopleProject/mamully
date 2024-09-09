@@ -1,4 +1,4 @@
-package com.mamully.toyProject.test.entities;
+package com.mamully.toyProject.test.command.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

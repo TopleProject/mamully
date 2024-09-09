@@ -1,12 +1,10 @@
-package com.mamully.toyProject.test.controllers;
+package com.mamully.toyProject.test.command.controllers;
 
-import com.mamully.toyProject.test.services.TestDTO;
-import com.mamully.toyProject.test.services.TestService;
+import com.mamully.toyProject.test.command.services.TestDTO;
+import com.mamully.toyProject.test.command.services.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/test")
@@ -14,20 +12,6 @@ public class TestController {
 
     @Autowired
     private TestService testService;
-
-    // 모든 Test 데이터를 조회
-    @GetMapping
-    public ResponseEntity<List<TestDTO>> getAllTests() {
-        List<TestDTO> tests = testService.getAllTests();
-        return ResponseEntity.ok(tests);
-    }
-
-    // 특정 ID로 Test 데이터를 조회
-    @GetMapping("/{id}")
-    public ResponseEntity<TestDTO> getTestById(@PathVariable Long id) {
-        TestDTO test = testService.getTestById(id);
-        return ResponseEntity.ok(test);
-    }
 
     // POST
     @PostMapping

@@ -1,6 +1,6 @@
-package com.mamully.toyProject.test.mappers;
+package com.mamully.toyProject.test.query.mappers;
 
-import com.mamully.toyProject.test.services.TestDTO;
+import com.mamully.toyProject.test.command.services.TestDTO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

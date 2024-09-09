@@ -1,13 +1,9 @@
-package com.mamully.toyProject.test.services;
+package com.mamully.toyProject.test.command.services;
 
-import com.mamully.toyProject.test.entities.Test;
-import com.mamully.toyProject.test.mappers.TestMapper;
-import com.mamully.toyProject.test.repositories.TestRepository;
+import com.mamully.toyProject.test.command.entities.Test;
+import com.mamully.toyProject.test.command.repositories.TestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TestService {
@@ -15,22 +11,6 @@ public class TestService {
     @Autowired
     private TestRepository testRepository;
 
-    @Autowired
-    private TestMapper testMapper;
-
-    // 모든 Test 데이터를 조회하는 메서드
-    public List<TestDTO> getAllTests() {
-        return testMapper.findAllTests();
-    }
-
-    // 특정 ID로 Test 데이터를 조회하는 메서드
-    public TestDTO getTestById(Long id) {
-        TestDTO testDTO = testMapper.findTestById(id);
-        if (testDTO == null) {
-            throw new IllegalArgumentException("해당 ID의 데이터가 존재하지 않습니다 : " + id);
-        }
-        return testDTO;
-    }
 
     /* Test Post 작업*/
     public TestDTO createTest(String content){
