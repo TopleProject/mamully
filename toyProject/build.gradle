@@ -41,6 +41,9 @@ dependencies {
 	// H2 Database (in-memory database for testing or dev)
 	runtimeOnly 'com.h2database:h2'
 
+	// Aws
+	implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE'
+
 	// Development tools
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
