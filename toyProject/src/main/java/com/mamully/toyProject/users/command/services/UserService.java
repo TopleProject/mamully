@@ -41,4 +41,9 @@ public class UserService {
             throw new IllegalArgumentException("이미 사용 중인 이메일입니다."); // 예외 처리
         }
     }
+
+    public User findUserByUsername(String username) {
+
+        return usersRepository.findByUserId(username).orElse(null);
+    }
 }
