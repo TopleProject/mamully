@@ -31,7 +31,6 @@ public class UsersController {
     private final UserService userService; // 서비스 클래스 주입
     private final AuthenticationManager authenticationManager;
     private final JwtUtil jwtUtil;
-    private final View error;
 
     // 회원 가입 API
     @PostMapping("/signup")
