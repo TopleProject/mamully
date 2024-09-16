@@ -1,4 +1,4 @@
-package com.mamully.toyProject.common.user.security;
+package com.mamully.toyProject.config.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
