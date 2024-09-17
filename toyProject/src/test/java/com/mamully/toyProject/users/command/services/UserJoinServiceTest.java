@@ -93,6 +93,7 @@ class UserJoinServiceTest {
     @DisplayName("회원 이메일 중복 테스트")
     @Test
     public void testJoinUser_DuplicateEmail() {
+
         // Mocking
         when(usersRepository.existsByUserId(userDTO.getUserId())).thenReturn(false);
         when(usersRepository.existsByUserPhone(userDTO.getPhone())).thenReturn(false);

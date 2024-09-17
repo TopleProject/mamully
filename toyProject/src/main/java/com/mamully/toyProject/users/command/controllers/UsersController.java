@@ -67,7 +67,7 @@ public class UsersController {
 
     // 로그인 API
     @PostMapping("/login")
-    public ResponseEntity<Map<String,String>> login(@RequestBody LoginDTO loginDTO) throws JsonProcessingException {
+    public ResponseEntity<Map<String,String>> login(@RequestBody LoginDTO loginDTO)  {
         JwtToken token = userService.loginUser(loginDTO);
 
         // 아이디 또는 비밀번호 오류

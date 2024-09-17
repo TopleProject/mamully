@@ -32,20 +32,21 @@ public class SecurityConfig  {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
-            .csrf(AbstractHttpConfigurer::disable) // CSRF 보호 비활성화
-            .authorizeHttpRequests(authorize -> authorize
-                    .requestMatchers("/api/v1/login",
-                            "/",
-                            "/swagger-ui/**",
-                            "/swagger-resources/**",
-                            "/v3/api-docs/**"
-                    ).permitAll()// "/login" 경로는 인증 없이 접근 허용
-                    .anyRequest().authenticated() // 그 외의 요청은 인증 필요
+                .csrf(AbstractHttpConfigurer::disable) // CSRF 보호 비활성화
+                .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers("/api/v1/login",
+                                "/api/v1/signup",
+                                "/",
+                                "/swagger-ui/**",
+                                "/swagger-resources/**",
+                                "/v3/api-docs/**"
+                        ).permitAll()// "/login" 경로는 인증 없이 접근 허용
+                        .anyRequest().authenticated() // 그 외의 요청은 인증 필요
 
-            )
+                )
                 .sessionManagement(session -> session
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS) // 세션 사용 안함
-        );
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS) // 세션 사용 안함
+                );
         return http.build();
     }
 
