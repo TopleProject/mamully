@@ -47,5 +47,11 @@ public class User {
         this.userStatus = userStatus;
         this.userSignupDate = userSignupDate;
     }
+
+    public User(Long userNum, String userId, String userPw) {
+        this.userNum = userNum;
+        this.userId = userId;
+        this.userPw = userPw;
+    }
 }
 

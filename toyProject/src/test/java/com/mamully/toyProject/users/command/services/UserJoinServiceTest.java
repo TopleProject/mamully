@@ -18,7 +18,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @Transactional
-class UserServiceTest {
+class UserJoinServiceTest {
 
     @Mock
     private UsersRepository usersRepository; // JPA 리포지토리 주입
@@ -36,7 +36,7 @@ class UserServiceTest {
         MockitoAnnotations.openMocks(this);
         userDTO = new UserDTO();
         userDTO.setName("테스트");
-        userDTO.setUsername("testUser");
+        userDTO.setUserId("testUser");
         userDTO.setPassword("password123");
         userDTO.setPhone("010-1234-5678");
         userDTO.setEmail("test@example.com");
@@ -46,7 +46,7 @@ class UserServiceTest {
     @Test
     public void testJoinUser_Success() {
         // Mocking
-        when(usersRepository.existsByUserId(userDTO.getUsername())).thenReturn(false);
+        when(usersRepository.existsByUserId(userDTO.getUserId())).thenReturn(false);
         when(usersRepository.existsByUserPhone(userDTO.getPhone())).thenReturn(false);
         when(usersRepository.existsByUserEmail(userDTO.getEmail())).thenReturn(false);
         when(passwordEncoder.encode(any(String.class))).thenReturn("hashedPassword");
@@ -63,7 +63,7 @@ class UserServiceTest {
     @Test
     public void testJoinUser_DuplicateUsername() {
         // Mocking
-        when(usersRepository.existsByUserId(userDTO.getUsername())).thenReturn(true);
+        when(usersRepository.existsByUserId(userDTO.getUserId())).thenReturn(true);
 
         // 예외 발생 검증
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
@@ -78,7 +78,7 @@ class UserServiceTest {
     @Test
     public void testJoinUser_DuplicatePhone() {
         // Mocking
-        when(usersRepository.existsByUserId(userDTO.getUsername())).thenReturn(false);
+        when(usersRepository.existsByUserId(userDTO.getUserId())).thenReturn(false);
         when(usersRepository.existsByUserPhone(userDTO.getPhone())).thenReturn(true);
 
         // 예외 발생 검증
@@ -94,7 +94,7 @@ class UserServiceTest {
     @Test
     public void testJoinUser_DuplicateEmail() {
         // Mocking
-        when(usersRepository.existsByUserId(userDTO.getUsername())).thenReturn(false);
+        when(usersRepository.existsByUserId(userDTO.getUserId())).thenReturn(false);
         when(usersRepository.existsByUserPhone(userDTO.getPhone())).thenReturn(false);
         when(usersRepository.existsByUserEmail(userDTO.getEmail())).thenReturn(true);
 
@@ -106,4 +106,7 @@ class UserServiceTest {
         // 예외 메시지 검증
         assertEquals("이미 사용 중인 이메일입니다.", thrown.getMessage());
     }
+
+
+
 }
