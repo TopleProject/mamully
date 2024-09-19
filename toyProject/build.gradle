@@ -52,6 +52,12 @@ dependencies {
 	// Development tools
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
+	// Webflux
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+	// JSON
+	implementation 'org.json:json:20210307'
+
 	// Testing dependencies
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
