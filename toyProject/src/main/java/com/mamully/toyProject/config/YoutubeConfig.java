@@ -19,9 +19,4 @@ public class YoutubeConfig {
                 .build();
     }
 
-    @Bean
-    public YoutubeUtil youTubeUtil(WebClient youtubeWebClient) {
-        return new YoutubeUtil(youtubeWebClient);
-    }
-
 }
